@@ -40,7 +40,7 @@ function pos2kml(lat,lon,hgt,att,out_file,opt)
     if ~isempty(fdir) && ~exist(fdir,'dir')
         mkdir(fdir);
     end
-    
+
     if ~exist('opt','var') || ~isfield(opt,'line')
         opt.line = 1;
     end
@@ -50,7 +50,7 @@ function pos2kml(lat,lon,hgt,att,out_file,opt)
     if  ~exist('opt','var') || ~isfield(opt,'line_width')
         opt.line_width = 2;
     end
-    
+
     icon_url = 'http://maps.google.com/mapfiles/kml/pal2/icon18.png';
 
     fileID = fopen(out_file,'w');
@@ -67,9 +67,7 @@ function pos2kml(lat,lon,hgt,att,out_file,opt)
         fprintf(fileID,'  </IconStyle>\n');
         fprintf(fileID,'</Style>\n');
     end
-    
 
-    
     fprintf(fileID,'<Folder>\n');
     fprintf(fileID,'  <name>Rover Position</name>\n');
 
@@ -90,7 +88,7 @@ function pos2kml(lat,lon,hgt,att,out_file,opt)
         fprintf(fileID,'</Style>\n');
     end
     fprintf(fileID,'</Placemark>\n');
-    
+
     for i = 1:size(lat,1)
         fprintf(fileID,'<Placemark>\n');
         fprintf(fileID,...
